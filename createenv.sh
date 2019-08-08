@@ -5,6 +5,11 @@ if [[ $# -eq 0 ]] ; then
     exit 1
 fi
 
+if [[ -z "$2" ]] ; then
+    echo 'Required domain name'
+    exit 1
+fi
+
 ## CONST
 scriptDir=$(pwd)
 randNumber="$(cat /dev/urandom | tr -dc '0-9' | fold -w 256 | head -n 1 | sed -e 's/^0*//' | head --bytes 5)"
